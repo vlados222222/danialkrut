@@ -1,0 +1,68 @@
+<?php
+require_once("db.php");
+?>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - ПрокатВещей</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>ПрокатВещей</h1>
+        <nav>  
+            <a href="#">Регистрация</a>
+            <a href="indexAuth.php">Авторизация</a>
+        </nav>
+    </header>
+    <main>
+       <div class="regForm">
+            <form method='POST' action="register.php">
+                <div class="form-group">
+                    <label class="required">Логин</label>
+                    <input type="text" name="login" placeholder='Ваш логин' required 
+                           title="Только латинские буквы и цифры, не менее 6 символов"
+                           pattern="[a-zA-Z0-9]{6,}">
+                    <div class="hint">Только латинские буквы и цифры, не менее 6 символов</div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Пароль</label>
+                    <input type="password" name="password" placeholder='Ваш пароль' required 
+                           title="Минимум 8 символов, обязательно цифра и заглавная буква"
+                           pattern="^(?=.*[A-Z])(?=.*\d).{8,}$">
+                    <div class="hint">Минимум 8 символов, обязательно цифра и заглавная буква</div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">ФИО</label>
+                    <input type="text" name="fio" placeholder='Ваше ФИО' required 
+                           title="Только кириллические буквы и пробелы"
+                           pattern="[А-ЯЁа-яё\s]+">
+                    <div class="hint">Только кириллические буквы и пробелы</div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Номер телефона</label>
+                    <input type="tel" name="phone" placeholder='+7(999)999-99-99' required 
+                           title="Формат: +7(XXX)XXX-XX-XX"
+                           pattern="\+7\(\d{3}\)\d{3}-\d{2}-\d{2}">
+                    <div class="hint">Формат: +7(XXX)XXX-XX-XX</div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Серия и номер паспорта</label>
+                    <input type="text" name="passport" placeholder='1234 567890' required 
+                           title="Формат: XXXX XXXXXX"
+                           pattern="\d{4}\s\d{6}">
+                    <div class="hint">Формат: XXXX XXXXXX</div>
+                </div>
+                
+                <button type='submit'>Зарегистрироваться</button>
+            </form>
+       </div>
+    </main>
+</body>
+</html>
